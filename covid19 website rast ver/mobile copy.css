@@ -1,0 +1,120 @@
+body {
+  background-color: #4682b4;
+  /*복사 방지 css 코드*/
+  /* Prevent tablets from selecting text on taphold, etc:
+     Note:
+     If only the potential menu trigger elements should be protected, simply
+     use the 'preventSelect: true' option.
+     But we disable it more globally for tablet pc's, because the whole line
+     or paragraph will still be selected otherwise.
+   */
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.logo {
+  text-align: center;
+}
+.logo-button {
+  font-size: 2rem;
+  color: black;
+  border: none;
+  text-decoration: none;
+}
+.menu-button {
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  text-decoration: none;
+  background-color: black;
+}
+.siteButton {
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  text-decoration: none;
+  background-color: #363636;
+}
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+button {
+  background: none;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 0.2rem;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 0.7rem 1rem;
+  position: relative;
+  text-transform: uppercase;
+}
+
+button::before,
+button::after {
+  background: #fff;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+
+button:hover {
+  color: #2ecc71;
+}
+.main-menu {
+  text-align: center;
+}
+h3 {
+  cursor: text;
+  text-align: center;
+}
+.main-button {
+  cursor: pointer;
+  text-align: center;
+}
+.images {
+  cursor: pointer;
+  text-align: center;
+}
+img {
+  max-width: 70%;
+}
+
+.docorp {
+  color: black;
+  border: none;
+  text-decoration: none;
+}
+.mail {
+  color: black;
+  border: none;
+  text-decoration: none;
+}
+.privacy {
+  color: black;
+  border: none;
+  text-decoration: none;
+}
+.rast {
+  font-size: 0.7rem;
+  text-align: center;
+}
+@media (max-width: 1000px) {
+  .images {
+    text-align: center;
+  }
+  img {
+    max-width: 100%;
+  }
+}

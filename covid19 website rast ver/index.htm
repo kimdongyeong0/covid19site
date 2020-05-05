@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="https://hardcore-allen-477508.netlify.com/images/favicon.ico" href="https://hardcore-allen-477508.netlify.com/images/favicon.ico" />
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="index.js"></script>
+    <title>CORONAINFO</title>
+    <script src="https://kit.fontawesome.com/d5bd1de9cb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="logo">
+        <a id="logo_anchor" href="http://coronalnfo.kro.kr" style="cursor: pointer;">CORNAINFO</a>
+      </h1>
+      <nav>
+        <div class="nav_menu">
+          <button
+            class="menu_button"
+            onclick="window.open('mailto:kim@dongyeong.kro.kr')"
+          >
+            FeedBack
+          </button>
+          <button class="menu_button" onclick="window.open('other site.html')">
+            other site
+          </button>
+        </div>
+        <div id="date_menu">
+          <span>마지막 업데이트 날짜 : 2020.5.5 오후 3:20</span>
+          <button class="reload_button" onClick="window.location.reload()">
+            <i class="fas fa-redo"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <div id="main_div">
+      <div class="main_content">
+        <div class="country_button">
+          <button id="jsChangeCountry" class="country_button">Korea</button>
+        </div>
+        <div class="conf1">        
+          <div class="title">확진자 수 : </div>
+          <div id="confirmer_number" class="number"></div>
+          <div id="rast_day" class="rast"></div>
+        </div>
+        <div class="conf2">
+          <div class="title">사망자 수 : </div>
+          <div id="deaths_number" class="number"></div>
+          <div id="rast_day2" class="rast"></div>
+        </div>
+       <div class="conf3">
+          <div class="title">격리 해제 : </div>
+          <div id="quarantine_release" class="number"></div>
+          <div id="rast_day3" class="rast"></div>
+        </div>
+        <div class="conf4">
+          <div id="during__treatment" class="title">치료 중 : </div>
+          <div id="during_treatment" class="number"></div>
+          <div id="rast_day4" class="rast"></div>
+        </div>
+      </div>
+    </div>
+    <div class="img">
+      <div style="text-align: center; cursor: text;">시.도 버튼을 클릭 하시면 각 시.도 홈페이지로 연결 됩니다.</div>
+      <div class="button_incheon">      
+        <button class="area1_button" onclick="window.open('https://www.incheon.go.kr/intro/index')">
+          <span class="area1">인천</span>
+          <span class="area1">97</span>
+          <span class="area1">(+1)</span>
+        </button>
+      </div>
+      <div class="button_seoul">      
+        <button class="area1_button" onclick="window.open('https://www.seoul.go.kr/main/index.jsp')">
+          <span class="area1">서울</span>
+          <span class="area1">637</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_gyungki">
+        <button class="area1_button" onclick="window.open('https://www.gg.go.kr/')">
+          <span class="area1">경기</span>
+          <span class="area1">680</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_gangwon">      
+        <button class="area1_button" onclick="window.open('https://www.provin.gangwon.kr/covid-19.html')">
+          <span class="area1">강원</span>
+          <span class="area1">53</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_chungbuk">      
+        <button class="area1_button" onclick="window.open('http://www1.chungbuk.go.kr/intro/index.html')">
+          <span class="area1">충북</span>
+          <span class="area1">45</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_daejeon">      
+        <button class="area1_button" onclick="window.open('https://www.daejeon.go.kr/intro_main.jsp')">
+          <span class="area1">대전</span>
+          <span class="area1">40</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_chungnam">      
+        <button class="area1_button" onclick="window.open('http://www.chungnam.go.kr:8100/main.do')">
+          <span class="area1">충남</span>
+          <span class="area1">143</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_sejong">      
+        <button class="area1_button" onclick="window.open('https://www.sejong.go.kr/')">
+          <span class="area1">세종</span>
+          <span class="area1">46</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_daegu">      
+        <button class="area1_button" onclick="window.open('https://www.daegu.go.kr/')">
+          <span class="area1">대구</span>
+          <span class="area1">6,856</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_gyungbuk">      
+        <button class="area1_button" onclick="window.open('https://www.gb.go.kr/')">
+          <span class="area1">경북</span>
+          <span class="area1">1,366</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_jeonbuk">      
+        <button class="area1_button" onclick="window.open('https://www.jeonbuk.go.kr/index.jeonbuk')">
+          <span class="area1">전북</span>
+          <span class="area1">18</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_gwangju">      
+        <button class="area1_button" onclick="window.open('https://www.gwangju.go.kr/')">
+          <span class="area1">광주</span>
+          <span class="area1">30</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_jeonnam">      
+        <button class="area1_button" onclick="window.open('https://www.jeonnam.go.kr/')">
+          <span class="area1">전남</span>
+          <span class="area1">15</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_ulsan">      
+        <button class="area1_button" onclick="window.open('http://www.ulsan.go.kr/corona.jsp')">
+          <span class="area1">울산</span>
+          <span class="area1">43</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_busan">      
+        <button class="area1_button" onclick="window.open('http://www.busan.go.kr/open/index.jsp')">
+          <span class="area1">부산</span>
+          <span class="area1">138</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_gyungnam">      
+        <button class="area1_button" onclick="window.open('http://www.gyeongnam.go.kr/intro.html')">
+          <span class="area1">경남</span>
+          <span class="area1">117</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <div class="button_jeju">      
+        <button class="area1_button" onclick="window.open('https://www.jeju.go.kr/corona19.jsp')">
+          <span class="area1">제주</span>
+          <span class="area1">13</span>
+          <span class="area1">(+0)</span>
+        </button>
+      </div>
+      <img class="map" src="images/map_0.png" alt="MAP">
+    </div>
+    <div id="mask">
+      <div class="mask_info">공적 마스크 판매점 검색</div>
+      <div>
+        <input
+          type="text"
+          id="search_text"
+          value=""
+          placeholder="예) 서울특별시 중구"
+        />
+        <button id="search_btn">찾기</button>
+      </div>
+      <div>
+        <ul id="filter_list"></ul>
+      </div>
+      <div>
+        <ul id="mask_list"></ul>
+      </div>
+    </div>
+      <div class="footer">
+        <div class="info_mainDiv">
+          <div>*너비가 530px 이하의 브라우저에서는 지도의 정보가 제대로 표시 되지 않을 수 있습니다.</div>
+          <div>
+            *수치는
+            <a href="http://ncov.mohw.go.kr" target="blank"
+              >http://ncov.mohw.go.kr</a
+            >
+            사이트 기준
+          </div>
+          <div>*마스크 제고 정보는 <a href="https://www.data.go.kr" target="blank">https://www.data.go.kr</a> 기준입니다, 개발 코드 출처는 <a href="https://heodolf.tistory.com/107" target="blank">https://heodolf.tistory.com/107</a> 입니다.</div>
+          <div>*업데이트는 24시간 간격으로 이루어 집니다.</div>
+          <div>*사이트 업데이트 진행은 오전8시 부터 오후 10시까지만 진행</div>
+        </div>
+        <div>*잘못된 정보 및 제보 이메일로 받습니다.</div>
+        <div id="mail">
+          <a href="mailto:kim@dongyeong.kro.kr" target="blank"
+            >개발자 메일 kim@dongyeong.kro.kr</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
